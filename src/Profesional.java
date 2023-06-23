@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Profesional extends Usuario {
+public class Profesional extends Usuario{
 
     private String titulo;
     private Date fechaIngreso;
@@ -39,12 +39,7 @@ public class Profesional extends Usuario {
     @Override
     public String toString() {
         return "PROFESIONAL {" +
-                "titulo='" + titulo + '\'' +
-                ", fechaIngreso='" + fechaIngreso + '\'' +
-                ", nombreUsuario='" + nombre + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                ", run='" + rut + '\'' +
-                '}';
+                "titulo = " + titulo + ", fechaIngreso = " + fechaIngreso + ", nombreUsuario = " + nombre +", fechaNacimiento = " + fechaNacimiento + ", rut = " + rut +" }";
     }
 
     public void analizarUsuario() {

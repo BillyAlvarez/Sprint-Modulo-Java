@@ -1,7 +1,7 @@
 import java.util.Calendar;
 import java.util.Date;
 
-public class Usuario implements IAsesoria {
+public class Usuario implements IAsesoria{
 
     protected String nombre;
     protected Date fechaNacimiento;
@@ -56,25 +56,25 @@ public class Usuario implements IAsesoria {
     }
 
     public void mostrarEdad() {
-        int edad = obtenerEdad();
-        System.out.println("El usuario tiene " + edad + " años");
-    }
+        int edad=  obtenerEdad();
+         System.out.println("El usuario tiene "+ edad + " años");
+     }
 
-    public int obtenerEdad() {
-        Calendar fechaNacimientoCal = Calendar.getInstance();
-        fechaNacimientoCal.setTime(fechaNacimiento);
+     public int obtenerEdad() {
+         Calendar fechaNacimientoCal = Calendar.getInstance();
+         fechaNacimientoCal.setTime(fechaNacimiento);
 
-        Calendar fechaActual = Calendar.getInstance();
+         Calendar fechaActual = Calendar.getInstance();
 
-        int edad = fechaActual.get(Calendar.YEAR) - fechaNacimientoCal.get(Calendar.YEAR);
+         int edad = fechaActual.get(Calendar.YEAR) - fechaNacimientoCal.get(Calendar.YEAR);
 
-        // Verificar si aún no se ha cumplido el cumpleaños en el año actual
-        if (fechaNacimientoCal.get(Calendar.MONTH) > fechaActual.get(Calendar.MONTH) ||
-                (fechaNacimientoCal.get(Calendar.MONTH) == fechaActual.get(Calendar.MONTH) &&
-                        fechaNacimientoCal.get(Calendar.DAY_OF_MONTH) > fechaActual.get(Calendar.DAY_OF_MONTH))) {
-            edad--;
-        }
+         // Verificar si aún no se ha cumplido el cumpleaños en el año actual
+         if (fechaNacimientoCal.get(Calendar.MONTH) > fechaActual.get(Calendar.MONTH) ||
+                 (fechaNacimientoCal.get(Calendar.MONTH) == fechaActual.get(Calendar.MONTH) &&
+                         fechaNacimientoCal.get(Calendar.DAY_OF_MONTH) > fechaActual.get(Calendar.DAY_OF_MONTH))) {
+             edad--;
+         }
 
-        return edad;
-    }
+         return edad;
+     }
 }

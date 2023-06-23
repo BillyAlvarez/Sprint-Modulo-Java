@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Contenedor {
-
-    private final List<Usuario> usuarios;
+	
+	private final List<Usuario> usuarios;
     private final List<Capacitacion> capacitaciones;
 
     public Contenedor() {
@@ -28,45 +30,71 @@ public class Contenedor {
         capacitaciones.add(capacitacion);
     }
 
+    
+    
     public void eliminarUsuario(int rut) {
-        Iterator<Usuario> iterator = usuarios.iterator();
-        while (iterator.hasNext()) {
-            Usuario usuario = iterator.next();
-            if (usuario.getRut() == rut) {
-                iterator.remove();
-                System.out.println("Usuario eliminado: " + rut);
-            }
+    	boolean delete = false;
+    	if (!usuarios.isEmpty()) {
+	    	Iterator<Usuario> iterator = usuarios.iterator();
+	        while (iterator.hasNext()) {
+	            Usuario usuario = iterator.next();
+	            if (usuario.getRut() == rut) {
+	                iterator.remove();
+	                delete = true;
+	                System.out.println("Usuario eliminado: " + rut);
+	            }
+	        }
+	        if(!delete) {
+                System.out.println("Rut " + rut + " no encontrado en listado de usuarios");
+	        }
+        } else {
+            System.out.println("ADVERTENCIA: No existen registros de usuarios para eliminar");
         }
-
     }
+    
+    
 
     public void listarUsuarios() {
-        for (Usuario usuario : usuarios) {
-            System.out.println(usuario);
-        }
+    	if (!usuarios.isEmpty()) {
+	    	for (Usuario usuario : usuarios) {
+	    		System.out.println(usuario);
+	    	}
+        } else {
+            System.out.println("ADVERTENCIA: No existen registros de usuarios");
+         }
 
     }
+    
+    
 
-    // en revision
     public void listarUsuariosPorTipo(String tipo) {
-        for (Usuario usuario : usuarios) {
-            if (usuario instanceof Usuario) {
-                if (tipo.equalsIgnoreCase("cliente") && usuario instanceof Cliente) {
-                    System.out.println(usuario);
-                } else if (tipo.equalsIgnoreCase("administrativo") && usuario instanceof Administrativo) {
-                    System.out.println(usuario);
-                } else if (tipo.equalsIgnoreCase("profesional") && usuario instanceof Profesional) {
-                    System.out.println(usuario);
-                }
-            }
+    	if (!usuarios.isEmpty()) {
+	        for (Usuario usuario : usuarios) {
+	            if (usuario instanceof Usuario) {
+	                if (tipo.equalsIgnoreCase("cliente") && usuario instanceof Cliente) {
+	                    System.out.println(usuario.toString());
+	                } else if (tipo.equalsIgnoreCase("administrativo") && usuario instanceof Administrativo) {
+	                    System.out.println(usuario.toString());
+	                } else if (tipo.equalsIgnoreCase("profesional") && usuario instanceof Profesional) {
+	                    System.out.println(usuario.toString());
+	                }
+	            }
+	        }
+        } else {
+            System.out.println("ADVERTENCIA: No existen registros de usuarios");
         }
     }
+    
 
-
+    
     public void listarCapacitaciones() {
-        for (Capacitacion capacitacion : capacitaciones) {
-            System.out.println(capacitacion);
-        }
+    	if (!capacitaciones.isEmpty()) {
+        	for (Capacitacion capacitacion : capacitaciones) {
+        		System.out.println(capacitacion);
+        	}
+         } else {
+            System.out.println("No existen registros de capacitaciones");
+         }
 
     }
 

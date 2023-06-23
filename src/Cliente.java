@@ -15,6 +15,7 @@ public class Cliente extends Usuario {
     }
 
 
+
     public Cliente(String nombreUsuario, Date fechaNacimiento, int run, String apellidos, String telefono, String afp, int sistemaSalud, String direcci, String comuna) {
         super(nombreUsuario, fechaNacimiento, run);
 
@@ -78,7 +79,7 @@ public class Cliente extends Usuario {
 
     @Override
     public String toString() {
-        return "CLIENTE { Nombre = " + nombre + ", apellidos = " + apellidos + '\'' + ", telefono =" + telefono + ", afp ='" + afp + '\'' + ", sistemaSalud =" + sistemaSalud + ", direccion ='" + direccion + '\'' + ", comuna = '" + comuna + '\'' + '\'' + ", fechaNacimiento = " + fechaNacimiento + ", rut = '" + rut + '\'' + '}';
+        return  "CLIENTE { Nombre = " + nombre + ", apellidos = " + apellidos +  ", telefono = " + telefono + ", AFP = " + afp +  ", sistemaSalud = " + sistemaSalud + ", direccion = " + direccion  + ", comuna = " + comuna  + ", fechaNacimiento = " + fechaNacimiento + ", rut = " + rut + "}";
     }
 
     public String obtenerNombre() {
